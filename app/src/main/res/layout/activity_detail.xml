@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.DetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/v_header"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_gradient_header"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            tools:viewBindingIgnore="true" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mvc_rounded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/v_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_header"
+            tools:viewBindingIgnore="true">
+
+            <ImageView
+                android:id="@+id/iv_detail_avatar"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/app_name"
+                android:padding="3dp"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/avatars" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_detail_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="@+id/v_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mvc_rounded"
+            app:layout_constraintTop_toTopOf="@+id/mvc_rounded"
+            tools:text="Mr. John Doe" />
+
+        <LinearLayout
+            android:id="@+id/linear_detail_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:orientation="vertical"
+            android:paddingVertical="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/frame_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/mvc_rounded"
+            app:layout_constraintTop_toBottomOf="@+id/mvc_rounded"
+            app:layout_constraintVertical_bias=".3"
+            tools:viewBindingIgnore="true">
+
+            <TextView
+                style="@style/TextContent.ColorTextPrimary"
+                android:layout_marginVertical="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/info_user"
+                android:textSize="22sp" />
+
+            <TextView
+                style="@style/TextContent.ColorTextSecondary.BodyInfo"
+                android:text="@string/info_username"
+                app:drawableStartCompat="@drawable/ic_person" />
+
+            <TextView
+                android:id="@+id/tv_detail_username"
+                style="@style/TextContent.ColorTextPrimary.BodyField"
+                tools:text="john_doe" />
+
+            <TextView
+                style="@style/TextContent.ColorTextSecondary.BodyInfo"
+                android:text="@string/info_company"
+                app:drawableStartCompat="@drawable/ic_business_center" />
+
+            <TextView
+                android:id="@+id/tv_detail_company"
+                style="@style/TextContent.ColorTextPrimary.BodyField"
+                tools:text="Google .inc" />
+
+            <TextView
+                style="@style/TextContent.ColorTextSecondary.BodyInfo"
+                android:text="@string/info_location"
+                app:drawableStartCompat="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/tv_detail_location"
+                style="@style/TextContent.ColorTextPrimary.BodyField"
+                tools:text="indonesia" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_footer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:viewBindingIgnore="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_follower"
+                    style="@style/RelativeDetailChild"
+                    app:layout_constraintEnd_toStartOf="@id/rl_following"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:viewBindingIgnore="true">
+
+                    <TextView
+                        android:id="@+id/tv_detail_follower"
+                        style="@style/TextContent.FooterField"
+                        tools:text="100" />
+
+                    <TextView
+                        style="@style/TextContent.FooterInfo"
+                        android:layout_below="@id/tv_detail_follower"
+                        android:text="@string/info_follower" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_following"
+                    style="@style/RelativeDetailChild"
+                    app:layout_constraintEnd_toStartOf="@+id/rl_repository"
+                    app:layout_constraintStart_toEndOf="@id/rl_follower"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:viewBindingIgnore="true">
+
+                    <TextView
+                        android:id="@+id/tv_detail_following"
+                        style="@style/TextContent.FooterField"
+                        tools:text="240" />
+
+                    <TextView
+                        style="@style/TextContent.FooterInfo"
+                        android:layout_below="@id/tv_detail_following"
+                        android:text="@string/info_following" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_repository"
+                    style="@style/RelativeDetailChild"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/rl_following"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:viewBindingIgnore="true">
+
+                    <TextView
+                        android:id="@+id/tv_detail_repository"
+                        style="@style/TextContent.FooterField"
+                        tools:text="633" />
+
+                    <TextView
+                        style="@style/TextContent.FooterInfo"
+                        android:layout_below="@id/tv_detail_repository"
+                        android:text="@string/info_repository" />
+
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
